@@ -1,0 +1,87 @@
+@extends('layouts.frontend')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="card-header">
+                    {{ trans('global.show') }} {{ trans('cruds.country.title') }}
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <a class="btn btn-default" href="{{ route('frontend.countries.index') }}">
+                                {{ trans('global.back_to_list') }}
+                            </a>
+                        </div>
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.country.fields.id') }}
+                                    </th>
+                                    <td>
+                                        {{ $country->id }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.country.fields.flag') }}
+                                    </th>
+                                    <td>
+                                        @if($country->flag)
+                                            <a href="{{ $country->flag->getUrl() }}" target="_blank" style="display: inline-block">
+                                                <img src="{{ $country->flag->getUrl('thumb') }}">
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.country.fields.phone_code') }}
+                                    </th>
+                                    <td>
+                                        {{ $country->phone_code }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.country.fields.name') }}
+                                    </th>
+                                    <td>
+                                        {{ $country->name }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.country.fields.short_code') }}
+                                    </th>
+                                    <td>
+                                        {{ $country->short_code }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.country.fields.active') }}
+                                    </th>
+                                    <td>
+                                        {{ App\Models\Country::ACTIVE_SELECT[$country->active] ?? '' }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="form-group">
+                            <a class="btn btn-default" href="{{ route('frontend.countries.index') }}">
+                                {{ trans('global.back_to_list') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@endsection
