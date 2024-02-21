@@ -73,6 +73,23 @@
                             </a>
                         </div>
                     </div>
+                    <div class="pass-list">
+                        <b>Admin</b>
+                        <div class="row">
+                            <div class="col-6">mrersen@gmail.com</div>
+                            <div class="col-6">password</div>
+                        </div>
+                        <b>Auth User</b>
+                        <div class="row">
+                            <div class="col-6">authuser@admin.com</div>
+                            <div class="col-6">password</div>
+                        </div>
+                        <b>Not Auth User</b>
+                        <div class="row">
+                            <div class="col-6">notauthuser@admin.com</div>
+                            <div class="col-6">password</div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

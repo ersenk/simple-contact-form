@@ -21,7 +21,10 @@ trait MultiTenantModelTrait
             if (! $isAdmin) {
                 static::addGlobalScope('team_id', function (Builder $builder) {
                     $field = sprintf('%s.%s', $builder->getQuery()->from, 'team_id');
-                    $builder->where($field, auth()->user()->team_id)->orWhereNull($field);
+                    $builder->where(function ($query) use ($field) {
+                        $query->where($field, auth()->user()->team_id)
+                              ->orWhereNull($field);
+                    })->orWhere('responsible_user_id', auth()->id());
                 });
             }
         }
